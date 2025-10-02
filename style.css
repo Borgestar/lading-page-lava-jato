@@ -1,0 +1,382 @@
+/* ===========================
+   RESET E VARIÁVEIS
+   =========================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+:root {
+  --laranja: #ff6600;
+  --cinza-claro: #f9f9f9;
+  --preto: #222;
+  --branco: #ffffff;
+}
+
+/* ===========================
+   CORPO
+   =========================== */
+body {
+  background: var(--branco);
+  color: var(--preto);
+  line-height: 1.6;
+}
+
+/* ===========================
+   CABEÇALHO
+   =========================== */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--branco);
+  padding: 15px 10%;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  flex-wrap: wrap;
+}
+
+header .logo {
+  height: 100px;
+}
+
+/* Navegação */
+header nav {
+  display: flex;
+  gap: 20px;
+}
+
+header nav a {
+  text-decoration: none;
+  color: var(--preto);
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+header nav a:hover {
+  color: var(--laranja);
+}
+
+/* Menu hamburguer */
+.menu-toggle {
+  display: none;
+  font-size: 2rem;
+  cursor: pointer;
+  color: var(--preto);
+}
+
+/* ===========================
+   BOTÃO CTA
+   =========================== */
+.btn-cta {
+  background: var(--laranja);
+  color: var(--branco);
+  padding: 10px 20px;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: 0.3s;
+  display: inline-block;
+  text-align: center;
+  font-weight: bold;
+}
+
+.btn-cta:hover {
+  background: #e65c00;
+}
+
+/* ===========================
+   HERO
+   =========================== */
+.hero {
+  text-align: center;
+  padding: 80px 20px;
+  background: var(--cinza-claro);
+}
+
+.hero h1 {
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+}
+
+.hero p {
+  margin-bottom: 20px;
+  font-size: 1.2rem;
+}
+
+/* ===========================
+   SEÇÕES
+   =========================== */
+section {
+  padding: 60px 20px;
+  text-align: center;
+}
+
+section h2 {
+  font-size: 2rem;
+  margin-bottom: 30px;
+  color: var(--laranja);
+}
+
+/* ===========================
+   CARDS
+   =========================== */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+.card {
+  background: var(--branco);
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.card h3 {
+  margin-bottom: 10px;
+  color: var(--preto);
+}
+
+/* ===========================
+   DEPOIMENTOS
+   =========================== */
+.testimonials {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.testimonial {
+  background: var(--cinza-claro);
+  padding: 20px;
+  border-radius: 10px;
+  font-style: italic;
+}
+
+/* ===========================
+   INSTAGRAM
+   =========================== */
+#instagram {
+  text-align: center;
+  padding: 60px 20px;
+  background: #f9f9f9;
+}
+
+#instagram h2 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+  color: var(--laranja);
+}
+
+#instagram p {
+  margin-bottom: 20px;
+  font-size: 1.1rem;
+  color: #333;
+}
+
+#instagram a:hover {
+  text-decoration: underline;
+}
+
+/* ===========================
+   CONTATO
+   =========================== */
+#contato p {
+  margin: 5px 0;
+}
+
+/* ===========================
+   RODAPÉ
+   =========================== */
+footer {
+  background: var(--cinza-claro);
+  padding: 20px;
+  text-align: center;
+  font-size: 0.9rem;
+  color: var(--preto);
+  margin-top: 40px;
+}
+
+/* ===========================
+   AGENDAMENTO
+   =========================== */
+.form-agendamento {
+  max-width: 720px;
+  margin: 0 auto;
+  background: var(--branco);
+  padding: 28px;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+  border: 1px solid #eee;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.form-agendamento label {
+  font-weight: 700;
+  color: var(--preto);
+  font-size: 0.95rem;
+}
+
+.form-agendamento input,
+.form-agendamento select,
+.form-agendamento textarea {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  background: #fff;
+  color: var(--preto);
+  font-size: 0.95rem;
+  transition: box-shadow 0.12s ease, border-color 0.12s ease;
+}
+
+.form-agendamento ::placeholder {
+  color: #9a9a9a;
+}
+
+.form-agendamento input:focus,
+.form-agendamento select:focus,
+.form-agendamento textarea:focus {
+  outline: none;
+  border-color: var(--laranja);
+  box-shadow: 0 6px 18px rgba(255,102,0,0.12);
+}
+
+.form-agendamento textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+.form-agendamento .btn-cta {
+  width: 100%;
+  padding: 12px 16px;
+  border-radius: 10px;
+  font-weight: 800;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
+}
+
+.form-agendamento .btn-cta:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 22px rgba(0,0,0,0.08);
+}
+
+.form-agendamento .hint {
+  font-size: 0.86rem;
+  color: #6b6b6b;
+}
+
+/* Grid em telas maiores */
+@media (min-width: 760px) {
+  .form-agendamento {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px 18px;
+    align-items: center;
+  }
+  .form-agendamento textarea,
+  .form-agendamento button,
+  .form-agendamento .full-width {
+    grid-column: 1 / -1;
+  }
+}
+
+/* ===========================
+   RESPONSIVIDADE
+   =========================== */
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    padding: 15px;
+    text-align: center;
+  }
+
+  header .btn-cta {
+    display: none;
+  }
+
+  header .logo {
+    height: 80px;
+    margin-bottom: 10px;
+  }
+
+  header nav {
+    display: none;
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  header nav.active {
+    display: flex;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  .hero {
+    padding: 50px 15px;
+  }
+
+  .hero h1 {
+    font-size: 2rem;
+  }
+
+  .hero p {
+    font-size: 1rem;
+  }
+
+  section {
+    padding: 40px 15px;
+  }
+
+  .btn-cta {
+    width: 100%;
+    max-width: 280px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 480px) {
+  header .logo {
+    height: 65px;
+  }
+
+  header nav a {
+    font-size: 0.9rem;
+  }
+
+  .hero h1 {
+    font-size: 1.6rem;
+  }
+
+  .hero p {
+    font-size: 0.9rem;
+  }
+
+  section h2 {
+    font-size: 1.5rem;
+  }
+
+  .card,
+  .testimonial,
+  .form-agendamento {
+    padding: 15px;
+  }
+
+  .btn-cta {
+    font-size: 0.9rem;
+    padding: 10px;
+  }
+}

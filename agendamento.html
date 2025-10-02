@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Agendamento - Luca's Lava Jato</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Cabeçalho -->
+  <header>
+    <img src="Image/Logo.png" alt="Logo Luca's Lava Jato" class="logo">
+
+    <div class="menu-toggle" id="menu-toggle">☰</div>
+
+    <nav id="menu">
+      <a href="index.html#inicio">Início</a>
+      <a href="index.html#servicos">Serviços</a>
+      <a href="index.html#sobre">Sobre</a>
+      <a href="index.html#depoimentos">Depoimentos</a>
+      <a href="index.html#instagram">Instagram</a>
+      <a href="agendamento.html">Agendamento</a>
+      <a href="index.html#contato">Contato</a>
+    </nav>
+
+    <a href="agendamento.html" class="btn-cta">Agende Agora</a>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <h1>Agende seu horário</h1>
+    <p>Preencha seus dados e envie pelo WhatsApp.</p>
+  </section>
+
+  <!-- Formulário -->
+  <section>
+    <h2>Formulário de Agendamento</h2>
+    <form class="form-agendamento">
+      <label for="nome">Nome:</label>
+      <input type="text" id="nome" name="nome" required>
+
+      <label for="telefone">Telefone:</label>
+      <input type="tel" id="telefone" name="telefone" required placeholder="(21) 99999-9999">
+
+      <label for="servico">Serviço:</label>
+      <select id="servico" name="servico" required>
+        <option value="">Selecione</option>
+        <option value="Lavagem Simples">Lavagem Simples</option>
+        <option value="Lavagem Completa">Lavagem Completa</option>
+        <option value="Higienização">Higienização</option>
+      </select>
+
+      <label for="data">Data:</label>
+      <input type="date" id="data" name="data" required>
+
+      <button type="submit" class="btn-cta">Enviar pelo WhatsApp</button>
+    </form>
+  </section>
+
+  <!-- Rodapé -->
+  <footer>
+    <p>© 2025 Luca's Lava Jato - Todos os direitos reservados.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
