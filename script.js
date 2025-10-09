@@ -9,13 +9,16 @@ if (form) {
 
     const nome = document.getElementById("nome").value.trim();
     const telefone = document.getElementById("telefone").value.trim();
+    const veiculo = document.getElementById("veiculo").value;
     const servico = document.getElementById("servico").value;
     const data = document.getElementById("data").value;
+
 
     const mensagem = `*Novo contato de agendamento* 🚗
 
 👤 Nome: ${nome}
 📱 Telefone: ${telefone}
+🚘 Veículo: ${veiculo}
 🛠 Serviço: ${servico}
 📅 Data: ${data}
 
