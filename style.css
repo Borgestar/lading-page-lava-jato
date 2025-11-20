@@ -1,31 +1,34 @@
 /* ===========================
    RESET E VARIÁVEIS
    =========================== */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: Arial, sans-serif;
-}
+* { margin: 0; padding: 0; box-sizing: border-box; }
 
 :root {
   --laranja: #ff6600;
-  --cinza-claro: #f9f9f9;
-  --preto: #222;
+  --laranja-dark: #e65c00;
+  --laranja-light: #fff0e6;
+  --preto: #1a1a1a;
+  --cinza-texto: #4a4a4a;
+  --cinza-bg: #f4f6f8;
   --branco: #ffffff;
+  --shadow: 0 15px 30px rgba(0,0,0,0.08);
+  --radius: 16px;
 }
 
-/* ===========================
-   CORPO
-   =========================== */
+html { scroll-behavior: smooth; }
+
 body {
   background: var(--branco);
-  color: var(--preto);
+  color: var(--cinza-texto);
+  font-family: 'Open Sans', sans-serif;
   line-height: 1.6;
+  overflow-x: hidden;
 }
 
+h1, h2, h3 { font-family: 'Montserrat', sans-serif; font-weight: 800; color: var(--preto); }
+
 /* ===========================
-   CABEÇALHO
+   HEADER INTELIGENTE
    =========================== */
 header {
   position: sticky;
@@ -34,58 +37,81 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: var(--branco);
-  padding: 15px 10%;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  flex-wrap: wrap;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  padding: 15px 5%;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+  transition: padding 0.3s ease;
 }
 
-header .logo {
-  height: 100px;
-}
+header.scrolled { padding: 10px 5%; }
 
-/* Navegação */
-header nav {
-  display: flex;
-  gap: 20px;
-}
+header .logo { height: 60px; transition: 0.3s; }
+
+header nav { display: flex; gap: 25px; align-items: center; }
 
 header nav a {
   text-decoration: none;
   color: var(--preto);
-  font-weight: bold;
-  transition: 0.3s;
+  font-weight: 600;
+  font-size: 0.95rem;
+  position: relative;
 }
 
-header nav a:hover {
-  color: var(--laranja);
+header nav a::after {
+  content: ''; position: absolute; bottom: -5px; left: 0; width: 0; height: 2px;
+  background: var(--laranja); transition: 0.3s;
 }
 
-/* Menu hamburguer */
-.menu-toggle {
-  display: none;
-  font-size: 2rem;
-  cursor: pointer;
-  color: var(--preto);
-}
+header nav a:hover { color: var(--laranja); }
+header nav a:hover::after { width: 100%; }
 
 /* ===========================
-   BOTÃO CTA
+   BOTÕES GERAIS
    =========================== */
 .btn-cta {
-  background: var(--laranja);
+  background: linear-gradient(135deg, var(--laranja), var(--laranja-dark));
   color: var(--branco);
-  padding: 10px 20px;
+  padding: 12px 30px;
+  border-radius: 50px;
   text-decoration: none;
-  border-radius: 5px;
-  transition: 0.3s;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-size: 0.9rem;
+  box-shadow: 0 8px 20px rgba(255, 102, 0, 0.3);
+  transition: transform 0.2s, box-shadow 0.2s;
+  border: none;
+  cursor: pointer;
   display: inline-block;
   text-align: center;
-  font-weight: bold;
 }
 
 .btn-cta:hover {
-  background: #e65c00;
+  transform: translateY(-3px);
+  box-shadow: 0 12px 25px rgba(255, 102, 0, 0.45);
+}
+
+.btn-outline {
+  border: 2px solid var(--preto);
+  color: var(--preto);
+  padding: 10px 28px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  transition: 0.3s;
+  display: inline-block; /* Garante que o botão respeite margens */
+}
+
+.btn-outline:hover { background: var(--preto); color: var(--branco); }
+
+.pulsate { animation: pulse 2s infinite; }
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 rgba(255, 102, 0, 0.7); }
+  70% { box-shadow: 0 0 0 15px rgba(255, 102, 0, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(255, 102, 0, 0); }
 }
 
 /* ===========================
@@ -93,153 +119,111 @@ header nav a:hover {
    =========================== */
 .hero {
   text-align: center;
-  padding: 80px 20px;
-  background: var(--cinza-claro);
+  padding: 120px 20px 80px;
+  background-color: #ffffff;
+  background-image: radial-gradient(var(--laranja) 1px, transparent 1px), radial-gradient(var(--laranja) 1px, transparent 1px);
+  background-size: 40px 40px;
+  background-position: 0 0, 20px 20px;
+  mask-image: linear-gradient(black 60%, transparent 100%); 
+  -webkit-mask-image: linear-gradient(black 60%, transparent 100%);
 }
 
-.hero h1 {
-  font-size: 2.5rem;
-  margin-bottom: 15px;
-}
-
-.hero p {
-  margin-bottom: 20px;
-  font-size: 1.2rem;
-}
+.hero h1 { font-size: 3.5rem; margin-bottom: 20px; line-height: 1.1; }
+.hero p { font-size: 1.3rem; margin-bottom: 40px; max-width: 600px; margin-inline: auto; }
+.hero-buttons { display: flex; gap: 15px; justify-content: center; flex-wrap: wrap; }
 
 /* ===========================
-   SEÇÕES
+   SEÇÕES GERAIS
    =========================== */
-section {
-  padding: 60px 20px;
-  text-align: center;
+section { padding: 80px 5%; text-align: center; }
+section h2 { font-size: 2.5rem; margin-bottom: 50px; position: relative; display: inline-block; }
+section h2::after {
+  content: ''; display: block; width: 80px; height: 6px;
+  background: var(--laranja); margin: 15px auto 0; border-radius: 10px;
 }
 
-section h2 {
-  font-size: 2rem;
-  margin-bottom: 30px;
-  color: var(--laranja);
+/* CORREÇÃO INSTAGRAM: Garante espaço entre texto e botão */
+#instagram p {
+  margin-bottom: 40px; 
+  font-size: 1.1rem;
+  color: #555;
 }
 
 /* ===========================
-   CARDS
+   CARDS E SERVIÇOS
    =========================== */
 .cards {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 20px;
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px; max-width: 1200px; margin: 0 auto;
 }
 
 .card {
   background: var(--branco);
-  padding: 20px;
-  border: 1px solid #ddd;
-  border-radius: 10px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  padding: 40px 30px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  transition: 0.4s;
+  border-top: 4px solid transparent;
 }
 
-.card h3 {
-  margin-bottom: 10px;
-  color: var(--preto);
+.card:hover {
+  transform: translateY(-15px);
+  border-top: 4px solid var(--laranja);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.12);
 }
+
+.icon-box { font-size: 3rem; margin-bottom: 20px; }
 
 /* ===========================
-   DEPOIMENTOS
+   SOBRE E DEPOIMENTOS
    =========================== */
-.testimonials {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
-}
+.bg-pattern { background: var(--laranja-light); border-radius: 50px 50px 0 0; }
 
+.testimonials { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; max-width: 1200px; margin: auto; }
 .testimonial {
-  background: var(--cinza-claro);
-  padding: 20px;
-  border-radius: 10px;
-  font-style: italic;
+  background: var(--branco); padding: 30px; border-radius: var(--radius);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.05); text-align: left; border-left: 5px solid var(--laranja);
 }
+.testimonial p { font-style: italic; color: #555; margin-bottom: 15px; }
+.testimonial .author span { display: block; font-weight: 800; color: var(--preto); }
+.testimonial .author small { color: var(--laranja); font-weight: 600; font-size: 0.85rem; }
 
 /* ===========================
-   INSTAGRAM
-   =========================== */
-#instagram {
-  text-align: center;
-  padding: 60px 20px;
-  background: #f9f9f9;
-}
-
-#instagram h2 {
-  font-size: 2rem;
-  margin-bottom: 10px;
-  color: var(--laranja);
-}
-
-#instagram p {
-  margin-bottom: 20px;
-  font-size: 1.1rem;
-  color: #333;
-}
-
-#instagram a:hover {
-  text-decoration: underline;
-}
-
-/* ===========================
-   CONTATO
-   =========================== */
-#contato p {
-  margin: 5px 0;
-}
-
-/* ===========================
-   RODAPÉ
-   =========================== */
-footer {
-  background: var(--cinza-claro);
-  padding: 20px;
-  text-align: center;
-  font-size: 0.9rem;
-  color: var(--preto);
-  margin-top: 40px;
-}
-
-/* ===========================
-   AGENDAMENTO
+   FORMULÁRIO DE AGENDAMENTO (RESTAURADO)
    =========================== */
 .form-agendamento {
-  max-width: 720px;
+  max-width: 800px;
   margin: 0 auto;
   background: var(--branco);
-  padding: 28px;
-  border-radius: 12px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.06);
-  border: 1px solid #eee;
+  padding: 40px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 20px;
+  text-align: left; /* Mantém os labels alinhados à esquerda */
 }
 
 .form-agendamento label {
   font-weight: 700;
   color: var(--preto);
-  font-size: 0.95rem;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
 .form-agendamento input,
-.form-agendamento select,
+.form-agendamento select, 
 .form-agendamento textarea {
   width: 100%;
-  padding: 12px 14px;
+  padding: 15px;
   border-radius: 8px;
-  border: 1px solid #ddd;
-  background: #fff;
+  border: 2px solid #eee;
+  background: #fafafa;
   color: var(--preto);
-  font-size: 0.95rem;
-  transition: box-shadow 0.12s ease, border-color 0.12s ease;
-}
-
-.form-agendamento ::placeholder {
-  color: #9a9a9a;
+  font-size: 1rem;
+  font-family: 'Open Sans', sans-serif;
+  transition: all 0.3s ease;
 }
 
 .form-agendamento input:focus,
@@ -247,136 +231,76 @@ footer {
 .form-agendamento textarea:focus {
   outline: none;
   border-color: var(--laranja);
-  box-shadow: 0 6px 18px rgba(255,102,0,0.12);
+  background: var(--branco);
+  box-shadow: 0 0 0 4px rgba(255, 102, 0, 0.1);
 }
 
-.form-agendamento textarea {
-  min-height: 100px;
-  resize: vertical;
-}
-
-.form-agendamento .btn-cta {
-  width: 100%;
-  padding: 12px 16px;
-  border-radius: 10px;
-  font-weight: 800;
-  border: none;
-  cursor: pointer;
-  transition: transform 0.12s ease, box-shadow 0.12s ease;
-}
-
-.form-agendamento .btn-cta:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 10px 22px rgba(0,0,0,0.08);
-}
-
-.form-agendamento .hint {
-  font-size: 0.86rem;
-  color: #6b6b6b;
-}
-
-/* Grid em telas maiores */
-@media (min-width: 760px) {
+/* Faz o formulário ficar lado-a-lado em telas grandes */
+@media (min-width: 768px) {
   .form-agendamento {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 14px 18px;
-    align-items: center;
+    gap: 25px;
+    align-items: end; /* Alinha os campos pela base */
   }
-  .form-agendamento textarea,
-  .form-agendamento button,
+  
+  /* O botão ocupa a largura total */
+  .form-agendamento button {
+    grid-column: 1 / -1;
+    margin-top: 10px;
+  }
+
+  /* Se você tiver campos de largura total (como textarea), use esta classe */
   .form-agendamento .full-width {
     grid-column: 1 / -1;
   }
 }
 
 /* ===========================
-   RESPONSIVIDADE
+   WHATSAPP FLUTUANTE
    =========================== */
-@media (max-width: 768px) {
-  header {
-    flex-direction: column;
-    padding: 15px;
-    text-align: center;
-  }
-
-  header .btn-cta {
-    display: none;
-  }
-
-  header .logo {
-    height: 80px;
-    margin-bottom: 10px;
-  }
-
-  header nav {
-    display: none;
-    flex-direction: column;
-    gap: 12px;
-    width: 100%;
-    margin-top: 10px;
-  }
-
-  header nav.active {
-    display: flex;
-  }
-
-  .menu-toggle {
-    display: block;
-  }
-
-  .hero {
-    padding: 50px 15px;
-  }
-
-  .hero h1 {
-    font-size: 2rem;
-  }
-
-  .hero p {
-    font-size: 1rem;
-  }
-
-  section {
-    padding: 40px 15px;
-  }
-
-  .btn-cta {
-    width: 100%;
-    max-width: 280px;
-    margin: 0 auto;
-  }
+.whatsapp-float {
+  position: fixed; bottom: 30px; right: 30px;
+  background: #25d366; width: 60px; height: 60px;
+  border-radius: 50%; display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3); z-index: 2000;
+  transition: 0.3s;
 }
+.whatsapp-float:hover { transform: scale(1.1); }
+.whatsapp-float img { width: 35px; height: 35px; filter: brightness(0) invert(1); }
 
-@media (max-width: 480px) {
-  header .logo {
-    height: 65px;
-  }
+/* ===========================
+   ANIMAÇÕES (SCROLL REVEAL)
+   =========================== */
+.hidden { opacity: 0; transform: translateY(50px); transition: all 0.8s ease; }
+.show { opacity: 1; transform: translateY(0); }
+.delay-100 { transition-delay: 0.1s; }
+.delay-200 { transition-delay: 0.2s; }
+.delay-300 { transition-delay: 0.3s; }
+.delay-400 { transition-delay: 0.4s; }
 
-  header nav a {
-    font-size: 0.9rem;
-  }
+/* ===========================
+   FOOTER
+   =========================== */
+footer { background: var(--preto); color: #777; padding: 40px; text-align: center; margin-top: 50px; }
 
-  .hero h1 {
-    font-size: 1.6rem;
-  }
+/* ===========================
+   MOBILE
+   =========================== */
+.menu-toggle { display: none; cursor: pointer; padding: 10px; }
+.bar { width: 25px; height: 3px; background: var(--preto); margin: 5px 0; transition: 0.3s; }
 
-  .hero p {
-    font-size: 0.9rem;
+@media (max-width: 768px) {
+  .hero h1 { font-size: 2.2rem; }
+  .menu-toggle { display: block; }
+  header nav {
+    position: fixed; top: 0; right: -100%; width: 80%; height: 100vh;
+    background: var(--branco); flex-direction: column; padding-top: 80px;
+    transition: 0.4s; box-shadow: -5px 0 15px rgba(0,0,0,0.1); z-index: 999;
   }
-
-  section h2 {
-    font-size: 1.5rem;
-  }
-
-  .card,
-  .testimonial,
-  .form-agendamento {
-    padding: 15px;
-  }
-
-  .btn-cta {
-    font-size: 0.9rem;
-    padding: 10px;
-  }
+  header nav.active { right: 0; }
+  .header-btn { display: none; } 
+  
+  /* No mobile, o formulário volta a ser uma coluna só */
+  .form-agendamento { display: flex; flex-direction: column; }
 }

@@ -3,108 +3,133 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Luca's Lava Jato</title>
+  <title>Luca's Lava Jato | Estética Automotiva</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- Cabeçalho -->
-  <header>
+  
+  <header id="header">
     <img src="Image/Logo.png" alt="Logo Luca's Lava Jato" class="logo">
     
-    <!-- Botão hamburguer -->
-    <div class="menu-toggle" id="menu-toggle">☰</div>
+    <div class="menu-toggle" id="menu-toggle">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+    </div>
 
     <nav id="menu">
       <a href="#inicio">Início</a>
       <a href="#servicos">Serviços</a>
       <a href="#sobre">Sobre</a>
       <a href="#depoimentos">Depoimentos</a>
-      <a href="#instagram">Instagram</a>
       <a href="agendamento.html">Agendamento</a>
       <a href="#contato">Contato</a>
     </nav>
 
-    <a href="agendamento.html" class="btn-cta">Agende Agora</a>
+    <a href="agendamento.html" class="btn-cta header-btn">Agende Agora</a>
   </header>
 
-  <!-- Hero -->
   <section id="inicio" class="hero">
-    <h1>Seu veículo limpo e brilhando sempre!</h1>
-    <p>Qualidade, confiança e rapidez para o cuidado do seu veículo.</p>
-    <a href="agendamento.html" class="btn-cta">Agende Agora</a>
+    <div class="hero-content hidden">
+      <h1>Seu carro novo de novo.</h1>
+      <p>Cuidado profissional, agilidade e o brilho que seu veículo merece.</p>
+      <div class="hero-buttons">
+        <a href="agendamento.html" class="btn-cta pulsate">Agendar Lavagem</a>
+        <a href="#servicos" class="btn-outline">Ver Serviços</a>
+      </div>
+    </div>
   </section>
 
-  <!-- Serviços -->
   <section id="servicos">
-    <h2>Nossos Serviços</h2>
+    <h2 class="hidden">Nossos Serviços</h2>
     <div class="cards">
-      <div class="card">
+      <div class="card hidden delay-100">
+        <div class="icon-box">✨</div>
         <h3>Lavagem Simples</h3>
-        <p>Seu carro limpo em poucos minutos.</p>
+        <p>Limpeza externa detalhada e aspiração interna rápida. Ideal para o dia a dia.</p>
       </div>
-      <div class="card">
-        <h3>Lavagem Completa</h3>
-        <p>Interior e exterior impecáveis.</p>
+      <div class="card hidden delay-200">
+        <div class="icon-box">💎</div>
+        <h3>Lavagem Detalhada</h3>
+        <p>Limpeza profunda de estofados, painel, motor e cera protetora.</p>
       </div>
-      <div class="card">
+      <div class="card hidden delay-300">
+        <div class="icon-box">🦠</div>
         <h3>Higienização</h3>
-        <p>Detalhes que fazem a diferença no conforto.</p>
+        <p>Eliminação de fungos, bactérias e odores. Saúde para sua família.</p>
       </div>
-      <div class="card">
+      <div class="card hidden delay-400">
+        <div class="icon-box">🛡️</div>
         <h3>Polimento</h3>
-        <p>Em breve...</p>
+        <p>Correção de riscos superficiais e proteção de pintura. (Em breve)</p>
       </div>
     </div>
   </section>
 
-  <!-- Sobre -->
-  <section id="sobre">
-    <h2>Sobre Nós</h2>
-    <p>
-      Sou Lucas, jovem empreendedor apaixonado por estética automotiva. Comecei ainda criança ajudando vizinhos a lavar carros e transformei essa paixão em profissão. 
-      No Luca's Lava Jato, nosso objetivo é oferecer serviços de qualidade, eficiência e atenção a cada detalhe, sempre buscando superar expectativas.
-    </p>
+  <section id="sobre" class="bg-pattern">
+    <div class="container hidden">
+      <h2>Sobre Nós</h2>
+      <p>
+        Muito mais que água e sabão. O <strong>Luca's Lava Jato</strong> nasceu da paixão por carros impecáveis. 
+        Entendemos que seu veículo é uma conquista, e por isso tratamos cada detalhe com rigor técnico e produtos de primeira linha.
+      </p>
+    </div>
   </section>
 
-  <!-- Depoimentos -->
   <section id="depoimentos">
-    <h2>O que nossos clientes dizem</h2>
+    <h2 class="hidden">Clientes Satisfeitos</h2>
     <div class="testimonials">
-      <div class="testimonial">
-        <p>"Serviço impecável, meu carro saiu como novo!"</p>
-        <span>- João S.</span>
+      <div class="testimonial hidden">
+        <p>"Serviço impecável, meu carro saiu parecendo que acabou de sair da concessionária!"</p>
+        <div class="author">
+           <span>João S.</span>
+           <small>Cliente Mensalista</small>
+        </div>
       </div>
-      <div class="testimonial">
-        <p>"Atendimento rápido e eficiente, recomendo demais."</p>
-        <span>- Maria F.</span>
+      <div class="testimonial hidden delay-100">
+        <p>"Atendimento rápido e muito educado. A higienização salvou o banco do meu carro."</p>
+        <div class="author">
+           <span>Maria F.</span>
+           <small>Lavagem Completa</small>
+        </div>
       </div>
-      <div class="testimonial">
-        <p>"Confiança total, levo meu carro sempre aqui."</p>
-        <span>- Pedro A.</span>
+      <div class="testimonial hidden delay-200">
+        <p>"Confiança total. Deixo a chave e busco depois sem preocupação nenhuma."</p>
+        <div class="author">
+           <span>Pedro A.</span>
+           <small>Polimento</small>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- Instagram -->
-  <section id="instagram">
-    <h2>Siga no Instagram</h2>
-    <a href="https://instagram.com/lucas_lava_jatos" target="_blank" class="btn-cta">
-      👉 Ver no Instagram
+  <section id="instagram" class="hidden">
+    <h2>Siga nosso trabalho</h2>
+    <p>Acompanhe o antes e depois dos nossos serviços no Instagram.</p>
+    <a href="https://instagram.com/lucas_lava_jatos" target="_blank" class="btn-outline instagram-btn">
+      @lucas_lava_jatos
     </a>
   </section>
 
-  <!-- Contato -->
-  <section id="contato">
-    <h2>Agende seu horário</h2>
-    <p>📍 Rua Maria Magalhães, 23 - SJM</p>
-    <p>📞 (21) 98728-8138</p>
+  <section id="contato" class="hidden">
+    <h2>Onde Estamos</h2>
+    <div class="contact-info">
+      <p>📍 Rua Maria Magalhães, 23 - SJM</p>
+      <p>📞 (21) 98728-8138</p>
+    </div>
     <a href="agendamento.html" class="btn-cta">Agendar no WhatsApp</a>
   </section>
 
-  <!-- Rodapé -->
   <footer>
-    <p>© 2025 Luca's Lava Jato - Todos os direitos reservados.</p>
+    <p>© 2025 Luca's Lava Jato. Feito com dedicação.</p>
   </footer>
+
+  <a href="https://wa.me/5521987288138?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20uma%20lavagem." class="whatsapp-float" target="_blank">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+  </a>
 
   <script src="script.js"></script>
 </body>
